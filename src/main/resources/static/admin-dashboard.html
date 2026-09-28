@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard - Loan Management System</title>
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+	<header class="dashboard-header">
+
+		<div>
+			<h1>Loan Management System</h1>
+			<p>Admin Dashboard</p>
+		</div>
+
+		<div class="header-right">
+			<span id="adminName"></span>
+
+			<button class="logout-btn" onclick="logout()">Logout</button>
+		</div>
+
+	</header>
+
+
+	<main class="dashboard-container">
+
+		<!-- Welcome -->
+
+		<section class="welcome-card">
+
+			<h2>
+				Welcome, <span id="adminWelcomeName"></span> 👋
+			</h2>
+
+			<p>Monitor and manage the loan management system.</p>
+
+		</section>
+
+
+		<!-- Statistics -->
+
+		<section class="stats-grid">
+
+			<div class="stat-card">
+
+				<div class="stat-icon">👥</div>
+
+				<div>
+					<h3>Total Customers</h3>
+					<p id="totalCustomers">0</p>
+				</div>
+
+			</div>
+
+
+			<div class="stat-card">
+
+				<div class="stat-icon">👨‍💼</div>
+
+				<div>
+					<h3>Loan Officers</h3>
+					<p id="totalLoanOfficers">0</p>
+				</div>
+
+			</div>
+
+
+			<div class="stat-card">
+
+				<div class="stat-icon">📄</div>
+
+				<div>
+					<h3>Total Loans</h3>
+					<p id="totalLoans">0</p>
+				</div>
+
+			</div>
+
+
+			<div class="stat-card">
+
+				<div class="stat-icon">⏳</div>
+
+				<div>
+					<h3>Applied Loans</h3>
+					<p id="appliedLoans">0</p>
+				</div>
+
+			</div>
+
+
+			<div class="stat-card">
+
+				<div class="stat-icon">✅</div>
+
+				<div>
+					<h3>Approved Loans</h3>
+					<p id="approvedLoans">0</p>
+				</div>
+
+			</div>
+
+
+			<div class="stat-card">
+
+				<div class="stat-icon">❌</div>
+
+				<div>
+					<h3>Rejected Loans</h3>
+					<p id="rejectedLoans">0</p>
+				</div>
+
+			</div>
+
+
+			<div class="stat-card">
+
+				<div class="stat-icon">🔄</div>
+
+				<div>
+					<h3>Active Loans</h3>
+					<p id="activeLoans">0</p>
+				</div>
+
+			</div>
+
+
+			<div class="stat-card">
+
+				<div class="stat-icon">🏁</div>
+
+				<div>
+					<h3>Closed Loans</h3>
+					<p id="closedLoans">0</p>
+				</div>
+
+			</div>
+
+		</section>
+
+
+		<!-- Refresh -->
+
+		<section class="section-card">
+
+			<div class="section-header">
+
+				<div>
+					<h2>System Overview</h2>
+
+					<p>Current loan and user statistics</p>
+				</div>
+
+				<button class="primary-btn" onclick="loadDashboard()">🔄
+					Refresh</button>
+
+			</div>
+
+			<div id="dashboardMessage"></div>
+
+		</section>
+
+		<section class="section-card">
+
+			<div class="section-header">
+
+				<div>
+					<h2>All Customers</h2>
+					<p>View registered customers</p>
+				</div>
+
+				<button class="primary-btn" onclick="loadCustomers()">👥
+					Load Customers</button>
+
+			</div>
+
+			<div class="table-container">
+
+				<table>
+
+					<thead>
+						<tr>
+							<th>Customer ID</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Role</th>
+							<th>Total Loans</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+
+					<tbody id="customersTableBody">
+
+						<tr>
+							<td colspan="7">Click "Load Customers" to view customers.</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+		<section class="section-card">
+
+			<div class="section-header">
+
+				<div>
+					<h2>Loan Officers</h2>
+					<p>View registered loan officers</p>
+				</div>
+
+				<button class="primary-btn" onclick="loadLoanOfficers()">
+					👨‍💼 Load Officers</button>
+
+			</div>
+
+			<div class="table-container">
+
+				<table>
+
+					<thead>
+						<tr>
+							<th>Officer ID</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Role</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+
+					<tbody id="officersTableBody">
+
+						<tr>
+							<td colspan="5">Click "Load Officers" to view loan officers.
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+		<section class="section-card">
+
+			<div class="section-header">
+
+				<div>
+					<h2>All Loans</h2>
+					<p>View all loan applications in the system</p>
+				</div>
+
+				<button class="primary-btn" onclick="loadAllLoans()">📄
+					Load Loans</button>
+
+			</div>
+
+			<div class="table-container">
+
+				<table>
+
+					<thead>
+						<tr>
+							<th>Loan ID</th>
+							<th>Customer ID</th>
+							<th>Customer Name</th>
+							<th>Email</th>
+							<th>Loan Type</th>
+							<th>Amount</th>
+							<th>Interest</th>
+							<th>Tenure</th>
+							<th>EMI</th>
+							<th>Status</th>
+							<th>Applied Date</th>
+							<th>Approved Date</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+
+					<tbody id="allLoansTableBody">
+
+						<tr>
+							<td colspan="13">Click "Load Loans" to view loan
+								applications.</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+		<section class="section-card">
+
+			<div class="section-header">
+
+				<div>
+					<h2>Create Loan Officer</h2>
+					<p>Add a new loan officer to the system</p>
+				</div>
+
+			</div>
+
+			<form id="createOfficerForm" class="form-grid">
+
+				<div class="form-group">
+					<label for="officerName">Name</label> <input type="text"
+						id="officerName" placeholder="Enter officer name" required>
+				</div>
+
+				<div class="form-group">
+					<label for="officerEmail">Email</label> <input type="email"
+						id="officerEmail" placeholder="Enter officer email" required>
+				</div>
+
+				<div class="form-group">
+					<label for="officerPhone">Phone</label> <input type="text"
+						id="officerPhone" placeholder="Enter phone number" required>
+				</div>
+
+				<div class="form-group">
+					<label for="officerPassword">Password</label> <input
+						type="password" id="officerPassword" placeholder="Enter password"
+						required>
+				</div>
+
+				<div>
+					<button type="submit" class="primary-btn">➕ Create Loan
+						Officer</button>
+				</div>
+
+			</form>
+
+			<div id="createOfficerMessage"></div>
+
+		</section>
+
+	</main>
+
+
+	<script src="/js/admin-dashboard.js"></script>
+
+	<!-- Customer Loans Modal -->
+
+	<div id="customerLoansModal" class="modal">
+
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<h2>Customer Loans</h2>
+
+				<button class="close-btn" onclick="closeCustomerLoansModal()">
+					✕</button>
+			</div>
+
+			<div id="customerLoansContent">Loading...</div>
+
+		</div>
+
+	</div>
+	\
+	<!-- Loan Details Modal -->
+
+	<div id="loanDetailsModal" class="modal">
+
+		<div class="modal-content">
+
+			<div class="modal-header">
+
+				<h2>Loan Details</h2>
+
+				<button class="close-btn" onclick="closeLoanDetailsModal()">
+					✕</button>
+
+			</div>
+
+			<div id="loanDetailsContent">Loading...</div>
+
+		</div>
+
+	</div>
+	<!-- Customer KYC Modal -->
+
+	<div id="customerKycModal" class="modal">
+
+		<div class="modal-content">
+
+			<div class="modal-header">
+
+				<h2>Customer KYC Documents</h2>
+
+				<button class="close-btn" onclick="closeCustomerKycModal()">
+					✕</button>
+
+			</div>
+
+			<div id="customerKycContent">Loading KYC documents...</div>
+
+		</div>
+
+	</div>
+	
+	<!-- ===============================
+     LOAN OFFICER DETAILS MODAL
+     =============================== -->
+
+<div id="officerDetailsModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Loan Officer Details</h2>
+
+            <button
+                class="close-btn"
+                onclick="closeOfficerDetailsModal()">
+                ✕
+            </button>
+
+        </div>
+
+        <div id="officerDetailsContent">
+            Loading officer details...
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Loan Officer Dashboard</title>
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Header -->
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h1>Loan Management System</h1>
+
+                <p>Loan Officer Dashboard</p>
+
+            </div>
+
+            <button id="logoutBtn"
+                    class="logout-btn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+        <!-- Welcome -->
+
+        <div class="welcome-card">
+
+            <h2>
+                Welcome,
+                <span id="officerName"></span>
+                👋
+            </h2>
+
+            <p>
+                Review and manage customer loan applications.
+            </p>
+
+        </div>
+
+
+        <!-- Loan Applications -->
+
+        <div class="loan-list">
+
+            <div class="section-header">
+
+                <h2>Loan Applications</h2>
+
+                <button id="refreshBtn">
+                    Refresh
+                </button>
+
+            </div>
+
+            <div id="loanContent">
+
+                Loading loan applications...
+
+            </div>
+
+        </div>
+
+
+        <!-- Customer Documents -->
+
+        <div class="loan-list">
+
+            <div class="section-header">
+
+                <h2>Customer Documents</h2>
+
+                <button id="refreshDocumentsBtn">
+                    Refresh Documents
+                </button>
+
+            </div>
+
+            <div id="documentContent">
+
+                Click "Refresh Documents" to load documents.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="/js/officer-dashboard.js"></script>
+
+</body>
+
+</html>

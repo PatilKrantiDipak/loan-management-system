@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Dashboard</title>
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Loan Management System
+                </h1>
+
+                <p>
+                    Customer Dashboard
+                </p>
+
+            </div>
+
+            <button id="logoutBtn"
+                    class="logout-btn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+        <!-- ================= WELCOME ================= -->
+
+        <div class="welcome-card">
+
+            <h2>
+
+                Welcome,
+                <span id="userName"></span>
+                👋
+
+            </h2>
+
+            <p>
+
+                Customer ID:
+                <strong id="customerId"></strong>
+
+            </p>
+
+            <p>
+
+                Manage your loan applications,
+                documents and profile.
+
+            </p>
+
+        </div>
+
+
+        <!-- ================= ACTION CARDS ================= -->
+
+        <div class="dashboard-actions">
+
+
+            <!-- APPLY LOAN -->
+
+            <div class="action-card">
+
+                <h2>
+                    💰 Apply for Loan
+                </h2>
+
+                <p>
+                    Submit a new loan application.
+                </p>
+
+                <button id="applyLoanBtn">
+
+                    Apply Loan
+
+                </button>
+
+            </div>
+
+
+            <!-- MY LOANS -->
+
+            <div class="action-card">
+
+                <h2>
+                    📋 My Loans
+                </h2>
+
+                <p>
+                    View your existing loan applications.
+                </p>
+
+                <button id="myLoansBtn">
+
+                    View My Loans
+
+                </button>
+
+            </div>
+
+
+            <!-- MY DOCUMENTS -->
+
+            <div class="action-card">
+
+                <h2>
+                    📄 My Documents
+                </h2>
+
+                <p>
+                    Upload and track your loan documents.
+                </p>
+
+                <button id="documentsBtn">
+
+                    My Documents
+
+                </button>
+
+            </div>
+
+
+            <!-- MY PROFILE -->
+
+            <div class="action-card">
+
+                <h2>
+                    👤 My Profile
+                </h2>
+
+                <p>
+                    View and update your profile information.
+                </p>
+
+                <button id="profileBtn">
+
+                    My Profile
+
+                </button>
+
+            </div>
+
+
+            <!-- CHANGE PASSWORD -->
+
+            <div class="action-card">
+
+                <h2>
+                    🔐 Change Password
+                </h2>
+
+                <p>
+                    Update your account password securely.
+                </p>
+
+                <button id="changePasswordBtn">
+
+                    Change Password
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= DYNAMIC CONTENT ================= -->
+
+        <div id="content"></div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
